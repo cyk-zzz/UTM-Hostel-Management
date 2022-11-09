@@ -1,0 +1,28 @@
+-user types: admin, student, accommodation manager
+
+-student has to apply for a college accommodation by filling up a form
+
+-Accommodation Manager has to approve/reject the application based on availability of the requested college
+
+-login validation using js
+
+All user can:
+-login
+-
+
+Admin can:
+- add(havent done js), edit and delete all user type
+-
+
+Students can:
+- edit own acc (not include id)
+- apply for a college accommodation by filling up a form
+- view result of application
+- view own record report
+- view all pages
+
+Manager can:
+-edit own acc (not include id)
+- view application to give approval/reject based on requested college's availability
+-view sorted report on all students' accommodation record
+

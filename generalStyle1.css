@@ -1,0 +1,494 @@
+/* set page visibility based on user role */
+.hide {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html.error, body.error{
+    background-color: white;
+}
+
+html {
+    height: 100%;
+    background: rgb(179, 216, 239);
+}
+
+body {
+    background: rgb(179, 216, 239);
+    margin: 0;
+    /* full size without margin*/
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* General CSS property*/
+a {
+    text-decoration: none;
+}
+
+button,
+a {
+    cursor: pointer;
+    border: none;
+}
+
+button {
+    border: none;
+    background-color: none;
+}
+
+div.top-nav,
+div.side-nav {
+    box-shadow: 5px 10px 8px lightskyblue;
+    /* Box shadow */
+    background-color: white;
+}
+
+.top-nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    padding: 10px;
+    z-index: 2;
+}
+
+.top-nav img {
+    width: 40px;
+    height: 40px;
+    padding: 0 5px 8px 3px;
+
+}
+
+
+/* side-nav and main-body */
+.container {
+    margin-top: 50px;
+    padding-top: 10px;
+    height: 100%;
+}
+
+.side-nav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    padding: 0 10px 0 15px;
+    font-size: 20px;
+}
+
+.side-nav a,
+.side-nav a.current {
+    width: 100%;
+    display: block;
+    padding: 10px;
+}
+
+.side-nav a {
+    color: blue;
+}
+
+.side-nav a.current {
+    color: white;
+    background-color: blue;
+}
+
+.side-nav i {
+    padding: 0 5px 0 5px;
+}
+
+.side-nav a:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.sub {
+    padding-left: 20px;
+    font-size: 80%;
+}
+
+.sub a {
+    color: blueviolet;
+}
+
+.sub a:hover {
+    background-color: purple;
+    color: white;
+}
+
+/* sub-top-nav and page-info*/
+.main-body {
+    height: 100%;
+    margin-left: 250px;
+    z-index: 0;
+}
+
+.sub-top-nav {
+    width: 100%;
+    padding: 5px 10px 5px 15px;
+    background-color: white;
+}
+
+.sub-top-nav a {
+    color: black;
+}
+
+div.page-info {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(179, 216, 239);
+    padding: 10px;
+    overflow: hidden;
+}
+
+div.message{
+    margin: 20px;
+    font-size: 200%;
+}
+
+/* table styling*/
+.page-info button {
+    color: white;
+}
+
+.search-area {
+    margin-bottom: 40px;
+}
+
+.search-area *:not(h5) {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+​ .search-area input {
+    width: 140px;
+}
+
+.list-button {
+    width: auto;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: large;
+}
+
+.action-button {
+    width: 25px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.general-button {
+    background-color: blue;
+}
+
+.general-button:hover {
+    background-color: darkblue;
+}
+
+.save-button {
+    background-color: rgb(10, 210, 10);
+}
+
+.save-button:hover {
+    background-color: darkgreen;
+}
+
+.cancel-button {
+    background-color: red;
+}
+
+.cancel-button:hover {
+    background-color: darkred;
+}
+
+.neutral-button {
+    background-color: yellow;
+}
+
+.neutral-button:hover {
+    background-color: rgb(173, 173, 5);
+}
+
+/* popup form */
+.popup-form {
+    display: none;
+    /* default: hide */
+    width: 600px;
+    height: max-content;
+    border: 3px solid lightgrey;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 10;
+    /* to top layer of page */
+    /* set position in page */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.form-container {
+    background-color: rgb(234, 233, 233);
+    width: 95%;
+    margin: 10px auto 10px auto;
+    /* align to center */
+    padding: 5px 10px 5px 10px;
+}
+
+.form-container label{
+    display: inline-block;
+    width: 30%;
+}
+
+.form-button {
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* set spacing between table row */
+.form-container>table {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.form-container>table th,
+.form-container>table td {
+    text-align: left;
+}
+
+.form-container>table th {
+    width: 20%;
+    padding-right: 5px;
+}
+
+.form-container>table td {
+    width: 30%;
+    padding-right: 10px;
+}
+
+.form-container>table tr {
+    padding-top: 20px;
+}
+
+/* managers and students list */
+.user-list {
+    /* check again */
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+}
+
+.user-list,
+.user-list tr,
+.user-list td,
+.user-list th {
+    border: 1px solid rgb(125, 163, 212);
+    text-align: center;
+    height: auto;
+}
+
+.user-list th {
+    background-color: darkblue;
+    color: white;
+}
+
+.user-list tr:hover {
+    background-color: lightskyblue;
+}
+
+/* to sort table*/
+.sorting {
+    background-color: rgb(222, 233, 244);
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.sorting span{
+    display: inline-block;
+    width: 15%;
+}
+
+.sorting select {
+    margin-left: 10px;
+    height: 30px;
+    width: 200px;
+}
+
+/* Inside search area */
+.search-area select {
+    width: 150px;
+    height: 30px;
+}
+
+/* student application result table */
+.student-result {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    font-size: 150%;
+}
+
+.student-result th,
+.student-result td {
+    width: 40%;
+    height: 40px;
+    border: 2px solid blue;
+    padding: 0px 0px 0px 10px;
+}
+.student-result th{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/* for profile page*/
+
+.center{
+    background-color: white;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    padding: 20px;
+    text-align: center;
+    font-size: 200%;
+    margin: 10px 0px;
+}
+
+.center a{
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    width: 250px;
+}
+
+.left {
+    float: left;
+    background-color: white;
+    width: 35%;
+    height: auto;
+    z-index: 1;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.right {
+    float: left;
+    background-color: white;
+    width: 55%;
+    height: auto;
+    z-index: 0;
+    padding: 20px;
+    margin: 10px;
+}
+
+img.profile-page {
+    width: 100%;
+    height: 100%;
+    max-width: 230px;
+    max-height: 250px;
+}
+
+.right input[type=text]{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    display: block;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+
+.right input[type=submit]{
+    background-color: blue;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+input.blueSubmit{
+    background-color: blue;
+    color: white;
+    border: 0;
+    font-size: large;
+    padding: 10px;
+}
+
+button.blueSubmit{
+    background-color: blue;
+    color: white;
+    font-size: large;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0px 0px 0px;
+}
+
+form.applyCollege select{
+    padding: 5px;
+    margin: 10px;
+    color: blue;
+    width: 200px;;
+}
+
+@media screen and (max-width: 800px) {
+    HTML, body{
+        background: rgb(179, 216, 239);
+        height: auto;
+    }
+    div.top-nav, div.container, div.side-nav, div.main-body{
+        width: 100%;
+    }
+    div.container{
+        height: 100%;
+        background: none;
+    }
+    div.side-nav, div.page-info{
+        position: relative;
+        height: auto;
+        padding: 0px;
+        margin: 0px;
+    }
+    div.main-body{
+        position: relative;
+        padding: 10px;
+        margin: 0;
+        height: 100vmax;
+    }
+    div.right, div.left{
+        width: 100%;
+        padding: 10px;
+        margin: 0px;
+    }
+    div.right{
+        margin-top: 10px;
+    }
+    .popup-form{
+        width: 90%;
+    }
+    .sorting span{
+        display: inline-block;
+        width: 30%;
+    }
+    div.sorting{
+        margin-bottom: 10px;
+    }
+    div.page-info{
+        background: none;
+        height: 100%;
+    }
+  }
+/* end of profile page*/
